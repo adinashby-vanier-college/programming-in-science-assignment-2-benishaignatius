@@ -27,15 +27,17 @@ def transpose_matrix(matrix):
     
 # Function 5: Slicing - Extracting Every Nth Element
 # This function takes a list and a step value N and returns every Nth element.
-def slice_every_nth(lst, step):
-    return []
+def slice_every_nth(lst, step): 
+    return lst[::step]
 
 # Function 6: Arithmetic Operations with Arrays - Dot Product
 # This function takes two lists of the same length and returns their dot product.
 def dot_product(list1, list2):
-    return 0
+    return sum(x*y for x, y in zip(list1,list2))
 
 # Function 7: Arithmetic Operations with Arrays - Matrix Multiplication
 # This function takes two 2D lists (matrices) and returns their matrix product.
 def matrix_multiplication(matrix1, matrix2):
-    return [[0, 0], [0, 0]]
+    return [[sum(matrix1*matrix2 for matrix1, matrix2 in zip (row,col))
+             for col in zip(*matrix2)]
+             for row in matrix1]
